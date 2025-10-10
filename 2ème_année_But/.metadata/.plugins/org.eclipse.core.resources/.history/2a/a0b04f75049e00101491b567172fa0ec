@@ -1,0 +1,32 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Stream;
+
+public class ApplicationRectangle {
+
+    public static void main(String[] args) {
+        // créer une liste de 12 rectangles
+        List<Rectangle> liste = Arrays.asList(new Rectangle(3, 4),
+            new Rectangle(120, 310), new Rectangle(10, 20),
+            new Rectangle(11, 30), new Rectangle(2, 1), new Rectangle(10, 20),
+            new Rectangle(500, 10), new Rectangle(23, 12), new Rectangle(5, 5),
+            new Rectangle(12, 40), new Rectangle(9, 300),
+            new Rectangle(10, 20));
+        
+        List<Integer> surfaces = liste.stream() 
+            .map(Rectangle::surface)
+            .toList();
+
+        System.out.println("Surfaces rectangles : " + surfaces);
+        
+        List<Integer> surfacesTriées = liste.stream() 
+            .map(Rectangle::surface)
+            .sorted()
+            .toList();
+
+        System.out.println("Surfaces triées rectangles : " + surfacesTriées);
+        
+        
+    }
+
+}

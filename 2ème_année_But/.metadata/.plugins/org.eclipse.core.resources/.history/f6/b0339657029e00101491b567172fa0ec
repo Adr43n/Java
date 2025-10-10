@@ -1,0 +1,51 @@
+import java.util.Objects;
+
+public class Rectangle {
+	private int longueurCote1;
+	private int longueurCote2;
+
+	public Rectangle(int longueurCote1, int longueurCote2) {
+		this.longueurCote1 = longueurCote1;
+		this.longueurCote2 = longueurCote2;
+	}
+
+	public int getLongueur() {
+		return Integer.max(this.longueurCote2, this.longueurCote1);
+	}
+
+	public int getLargeur() {
+		return Integer.min(this.longueurCote2, this.longueurCote1);
+	}
+
+	public int perimetre() {
+		return 2 * this.longueurCote1 + 2 * this.longueurCote2;
+	}
+
+	public int surface() {
+		return this.longueurCote1 * this.longueurCote2;
+	}
+
+	@Override
+	public String toString() {
+		return "Rectangle [longueur=" + this.getLongueur() + ", largeur=" + this.getLargeur() + ", surface="
+				+ this.surface() + ", perimètre=" + this.perimetre() + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(longueurCote1, longueurCote2);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (!(obj instanceof Rectangle)) {
+			return false;
+		}
+		Rectangle other = (Rectangle) obj;
+		return longueurCote1 == other.longueurCote1 && longueurCote2 == other.longueurCote2;
+	}
+
+}

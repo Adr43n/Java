@@ -1,0 +1,91 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class ApplicationEtudiant {
+    public static void main(String[] args) {
+        List<Etudiant> etudiants = new ArrayList<>();
+        etudiants.add(new Etudiant("Patricia", "Bazin", 'A', 2004));
+        etudiants.add(new Etudiant("Cécile", "Coulon", 'B', 2004));
+        etudiants.add(new Etudiant("Marine", "Duval", 'C', 2004));
+        etudiants.add(new Etudiant("Hugues", "Benard", 'D', 2003));
+        etudiants.add(new Etudiant("Patrick", "Jourdan Le Leduc", 'C', 2003));
+        etudiants.add(new Etudiant("Margot", "Jacquet Le Lebon", 'B', 2004));
+        etudiants.add(new Etudiant("René", "Gomez", 'A', 2004));
+        etudiants.add(new Etudiant("Pauline-Odette", "Jacques", 'B', 2004));
+        etudiants.add(new Etudiant("Célina", "Du Caron", 'A', 2004));
+        etudiants.add(new Etudiant("Michelle", "Muller", 'D', 2001));
+        etudiants.add(new Etudiant("Véronique", "Klein", 'B', 2004));
+        etudiants.add(new Etudiant("Gabriel-Guillaume", "Guichard", 'B', 2003));
+        etudiants.add(new Etudiant("Roland", "Lemaitre", 'A', 2004));
+        etudiants.add(new Etudiant("Charles", "Schneider", 'C', 2000));
+        etudiants.add(new Etudiant("Céline", "Fabre", 'D', 2004));
+        etudiants.add(new Etudiant("Timothée", "Potier", 'A', 2004));
+        etudiants.add(new Etudiant("Roger", "Colas", 'C', 2004));
+        etudiants.add(new Etudiant("Arthur", "Texier", 'C', 2004));
+        etudiants.add(new Etudiant("Astrid", "Berthelot", 'B', 2002));
+        etudiants.add(new Etudiant("Isaac", "Cousin", 'D', 2004));
+        etudiants.add(new Etudiant("Nathalie", "Gosselin", 'C', 2005));
+        etudiants.add(new Etudiant("Rémy", "Lenoir", 'A', 2006));
+        etudiants.add(new Etudiant("Jean", "Pires", 'A', 2001));
+        etudiants.add(new Etudiant("Luce", "Gimenez", 'A', 2002));
+        etudiants.add(new Etudiant("Maryse", "Martel", 'D', 2001));
+        etudiants.add(new Etudiant("Roger", "Lacroix", 'A', 2004));
+        etudiants.add(new Etudiant("Frédéric", "Lecomte", 'D', 2004));
+        etudiants.add(new Etudiant("Guy", "Carlier", 'B', 2004));
+        etudiants.add(new Etudiant("Dorothée", "Baudry-Boutin", 'A', 2004));
+        etudiants.add(new Etudiant("Nathalie", "Lagarde", 'C', 2003));
+        etudiants.add(new Etudiant("Nathalie", "Levy", 'A', 2004));
+        etudiants.add(new Etudiant("Sophie", "Labbe", 'A', 2004));
+        etudiants.add(new Etudiant("Suzanne", "André", 'A', 2003));
+        etudiants.add(new Etudiant("Emmanuelle", "Gilbert", 'A', 2004));
+        etudiants.add(new Etudiant("Roger", "Cousin", 'A', 2004));
+        etudiants.add(new Etudiant("Gérard", "Guyot", 'B', 2004));
+        etudiants.add(new Etudiant("Julie", "Besson", 'D', 2004));
+        etudiants.add(new Etudiant("Christiane", "Raynaud", 'A', 2004));
+        etudiants.add(new Etudiant("Philippine", "Briand", 'B', 2004));
+        etudiants.add(new Etudiant("Christophe", "Perrot", 'A', 2004));
+        etudiants.add(new Etudiant("Emilie", "Fontaine", 'B', 2004));
+        etudiants.add(new Etudiant("Jules", "Charrier", 'C', 2004));
+        etudiants.add(new Etudiant("César", "Charrier", 'D', 2004));
+        etudiants.add(new Etudiant("Théophile", "Caron", 'D', 2003));
+        etudiants.add(new Etudiant("Hugues-Gabriel", "Barbier", 'C', 2003));
+        etudiants.add(new Etudiant("Pénélope", "Da Costa", 'A', 2004));
+
+        // afficher noms des étudiants nés en 2003
+        System.out.println("\nNOMS DES ETUDIANTS NES EN 2003");
+        // ...
+
+        // afficher par ordre alphabétique les noms des étudiants nés après 2003
+        System.out.println(
+            "\nNOMS PAR ORDRE ALPHABETIQUE DES ETUDIANTS NES APRES 2003");
+        // ...
+
+        // afficher les années de naissance classées des étudiants sans doublon
+        System.out.println("\nANNEES DE NAISSANCE DES ETUDIANTS SANS DOUBLON");
+        // ...
+
+        // afficher les étudiants classés par groupe puis nom puis prénom
+        System.out
+            .println("\nETUDIANTS CLASSES PAR GROUPE PUIS NOM PUIS PRENOM");
+        // ...
+
+        // afficher les noms prénoms des étudiants du groupe B triés sur le
+        // nom
+        System.out
+            .println("\nNOM-PRENOM DES ETUDIANTS DU GROUPE B TRIES SUR LE NOM");
+        // ...
+
+        // construire puis éditer la liste des étudiants (nom+prénom) par ordre
+        // alphabétique
+        System.out.println("\nLISTE ClASSEE NOM-PRENOM DES ETUDIANTS");
+        // ...
+
+        // construire puis éditer la map (clé=groupe,liste nom+" - "prénom
+        // des étudiants de ce groupe triée par ordre
+        // alphabétique)
+        System.out.println("\nMAP DES ETUDIANTS PAR GROUPE");
+        // ...
+
+    }
+
+}

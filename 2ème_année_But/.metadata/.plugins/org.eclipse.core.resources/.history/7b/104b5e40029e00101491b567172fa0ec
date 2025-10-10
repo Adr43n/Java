@@ -1,0 +1,43 @@
+public class ApplicationNombres {
+
+    public static void main(String[] args) {
+        // construire un tableau de 20 doubles aléatoires compris dans
+        // l'intervalle [0, 100]
+        System.out.println(
+                "TABLEAU DE 20 VALEURS ALEATOIRES COMPRIS DANS [0, 100[");
+        // ...
+
+        // afficher sans stocker dans un tableau 20 valeurs aléatoires comprises
+        // dans l'intervalle [0, 100[
+        // puis afficher la somme de ces valeurs
+        System.out.println(
+                "20 VALEURS ALEATOIRES DANS [0,100[ ET SOMME DE CES VALEURS");
+        // ...
+
+        // afficher sans stocker dans un tableau 20 valeurs aléatoires comprises
+        // dans l'intervalle [0, 100[ puis
+        // afficher la moyenne de ces valeurs
+        System.out.println(
+                "20 VALEURS ALEATOIRES DANS [0,100[ ET MOYENNE DE CES VALEURS");
+        // ...
+
+        // afficher sans stocker dans un tableau 20 valeurs aléatoires comprises
+        // dans l'intervalle [0, 100[ puis
+        // afficher le maximum de ces valeurs
+        System.out.println(
+                "20 VALEURS ALEATOIRES DANS [0,100[ ET MAXIMUM DE CES VALEURS");
+        // ...
+
+        // construire un stream contenant les entiers compris dans l'intervalle
+        // [-15,+15], puis générer une map dont la clé est un entier x de cet
+        // intervalle
+        // et la valeur son image par la fonction f(x) = 10x+3
+        // afficher cette map
+        System.out.println(
+                "MAP DES VALEURS ENTIERES DANS L'INTERVALLE [-15, 15] ET DE "
+                        + "LEUR IMAGE PAR LA FONCTION f(x) = 10 x +3");
+        // ...
+
+    }
+
+}

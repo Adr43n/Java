@@ -1,0 +1,39 @@
+
+public class Etudiant {
+    private String nom;
+    private String prénom;
+    private char groupe;
+    private int anneeNaissance;
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getPrénom() {
+        return prénom;
+    }
+
+    public char getGroupe() {
+        return groupe;
+    }
+
+    public int getAnneeNaissance() {
+        return anneeNaissance;
+    }
+
+    public Etudiant(String prénom, String nom, char groupe,
+            int anneeNaissance) {
+        super();
+        this.nom = nom;
+        this.prénom = prénom;
+        this.groupe = groupe;
+        this.anneeNaissance = anneeNaissance;
+    }
+
+    @Override
+    public String toString() {
+        return "Etudiant [nom=" + nom + ", prénom=" + prénom + ", groupe="
+                + groupe + ", anneeNaissance=" + anneeNaissance + "]";
+    }
+
+}

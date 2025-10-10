@@ -1,0 +1,2 @@
+eclipse.preferences.version=1
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<watchExpressions>\r\n    <expression enabled\="true" text\="farenheit-32"/>\r\n    <expression enabled\="true" text\="5 / 9 * (farenheit - 32)"/>\r\n    <expression enabled\="true" text\="5 / 9"/>\r\n    <expression enabled\="true" text\="5d / 9d"/>\r\n    <expression enabled\="true" text\="5d / 9d * (farenheit - 32)"/>\r\n</watchExpressions>\r\n
