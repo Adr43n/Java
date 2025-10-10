@@ -1,0 +1,17 @@
+package bintetx;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class BinStringTest {
+	BinString bin = new BinString();
+	
+	@Test
+	public void testBinarisePlusieursValeurs() {
+		assertEquals("1",bin.binarise(1));
+		assertEquals("0001",bin.binarise(1));
+		assertEquals("111",bin.binarise(7));
+		assertEquals("1111",bin.binarise(15));
+	}
+}

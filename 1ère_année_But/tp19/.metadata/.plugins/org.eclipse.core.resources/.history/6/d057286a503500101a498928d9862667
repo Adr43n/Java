@@ -1,0 +1,10 @@
+
+public class Joueur {
+	
+	private int positionJoueur;
+	
+	public Joueur() {
+		this.positionJoueur = 0;
+	}
+
+}

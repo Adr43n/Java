@@ -1,0 +1,19 @@
+package businessModel;
+
+import system.Event;
+
+public class ControleurTableDeMarque {
+	
+	public ControleurTableDeMarque() {
+		
+	}
+	
+	public Event actionPerformed(Event  e) {
+		return e;
+	}
+	
+	public String getScore() {
+		return 
+	}
+
+}

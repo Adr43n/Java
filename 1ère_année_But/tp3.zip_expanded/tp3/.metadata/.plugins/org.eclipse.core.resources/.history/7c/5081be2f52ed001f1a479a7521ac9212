@@ -1,0 +1,60 @@
+
+public class Durée {
+	
+	private int heures;
+	private int minutes;
+	private int secondes;
+	
+	public Durée(int heures, int minutes, int secondes) 
+		throws IllegalArgumentException{
+		if (heures < 0) {
+			throw new IllegalArgumentException("Heures incorrectes");
+		}
+		if (minutes < 0 || minutes > 59) {
+			throw new IllegalArgumentException("Minutes incorrectes");
+		}
+		if (secondes < 0 || secondes > 59) {
+			throw new IllegalArgumentException("Secondes incorrectes");
+		}
+		this.heures = heures;
+		this.minutes = minutes;
+		this.secondes = secondes;
+	}
+	
+	public int getHeures() {
+		return heures;
+	}
+
+	public int getMinutes() {
+		return minutes;
+	}
+
+	public int getSecondes() {
+		return secondes;
+	}
+	
+	public boolean égal(Durée d) {
+		return this.heures == d.heures && this.minutes == d.minutes && this .secondes == d.secondes;
+	}
+	
+	public boolean inf(Durée d) {
+		return this.heures < d.heures || (this.heures == d.heures && this.minutes < d.minutes
+				 || (this.heures == d.heures && this.minutes == d.minutes && this.secondes < d.secondes));
+	}
+	public void ajouterUneSeconde() {
+		if (this.secondes < 59) {
+			this.secondes++;
+		}else {
+			this.secondes = 0;
+			if (this.minutes < 59) {
+				this.minutes++;
+			}else {
+				this.minutes = 0;
+				this.heures++;
+			}
+		}
+	}
+	
+
+
+}

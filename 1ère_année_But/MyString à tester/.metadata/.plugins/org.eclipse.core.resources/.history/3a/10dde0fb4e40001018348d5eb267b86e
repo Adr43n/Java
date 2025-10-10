@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+
+public class ConversionCelsusFarenheit {
+public static void main(String[] args) {
+System.out.print("Entrer une température en °F : ");
+Scanner scanner = new Scanner(System.in);
+ double farenheit = scanner.nextDouble();
+ double celsius =5/9*(farenheit-32);
+ System.out.println("La valeur en degré Celsius est "+ celsius);
+ scanner.close();
+}
+}

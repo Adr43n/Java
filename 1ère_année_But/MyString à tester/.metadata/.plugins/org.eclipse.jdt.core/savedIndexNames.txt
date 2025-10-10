@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\Users\adrie\OneDrive\Bureau\Cours_iut\BUT1\S2\r2.01\MyString à tester\.metadata\.plugins\org.eclipse.jdt.core
+2057816748.index
+3451357294.index
+836280954.index
+1865797976.index

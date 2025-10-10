@@ -1,0 +1,68 @@
+
+public class Rationnel {
+
+    // méthode de classe
+    public static long pgcd(long a, long b) throws IllegalArgumentException {
+        if (a == 0 && b == 0) {
+            throw new IllegalArgumentException("Les deux entiers sont nuls");
+        }
+        if (a == 0 || b == 0) {
+            return Math.max(a, b);
+        }
+        while (a != b) {
+            if (a < b) {
+                b = b - a; // b-=a
+            } else {
+                a = a - b; // a-=b
+            }
+        }
+        return a;
+    }
+
+    // les attributs
+    private final long numérateur;
+    private final long dénominateur;
+
+    // les méthodes
+    public Rationnel(long numérateur, long dénominateur)
+            throws IllegalArgumentException {
+        if (numérateur < 0) {
+            throw new IllegalArgumentException("numérateur négatif");
+        }
+        if (dénominateur <= 0) {
+            throw new IllegalArgumentException("dénominateur négatif ou nul");
+        }
+        this.numérateur = numérateur;
+        this.dénominateur = dénominateur;
+    }
+
+    public Rationnel somme(Rationnel r) {
+        long n = this.numérateur * r.dénominateur
+                + r.numérateur * this.dénominateur;
+        long d = this.dénominateur * r.dénominateur;
+        return new Rationnel(n, d);
+    }
+
+    public long getNumérateur() {
+        // à compléter
+    }
+
+    public long getDénominateur() {
+        // à compléter
+    }
+
+    public Rationnel réduction() {
+        // à compléter
+    }
+
+    public Rationnel produit(Rationnel r) {
+        // à compléter
+    }
+
+    @Override
+    public String toString() {
+        Rationnel formeReduite = this.réduction();
+        return formeReduite.numérateur + "/" + formeReduite.dénominateur;
+    }
+
+}

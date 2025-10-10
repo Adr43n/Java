@@ -1,0 +1,44 @@
+
+public class Course {
+	private int positionJoueur;
+	private Plateau plateau;
+	
+	public Course() {
+		this.positionJoueur = 0;
+		this.plateau = new Plateau();
+	}
+	
+	public void jouerPartie() {
+		while(!estPartieFinie()) {
+			jouerUnTour();
+		}
+	
+	}
+	
+	
+	private void jouerUnTour() {
+		int valeurDé = lancerDé();
+		int nouvellePosition = plateau.nouvellePosition(positionJoueur,valeurDé);
+		afficherTrace(positionJoueur,valeurDé,nouvellePosition);
+		toString();
+	}
+	
+	private void afficherTrace(int positionJoueur, int valeurDé, int nouvellePositionJoueur) {
+		System.out.println("Position joueur" + positionJoueur + "Valeur dé" + valeurDé + "Nouvelle position joueur" + nouvellePositionJoueur);
+	}
+	
+	private boolean estPartieFinie() {
+		return this.positionJoueur == 48;
+	}
+	private int lancerDé() {
+	    return (int) (6.0 * Math.random() + 1.0);
+	}
+	
+	@Override
+	public String toString() {
+		return "Position joueur"+ positionJoueur;
+	}
+}
+	
+	
+	

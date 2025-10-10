@@ -1,0 +1,128 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class OptionalTest {
+
+    @Test
+    public void testIsPresentOnOptionalEmpty() {
+        Optional<String> vide = Optional.empty();
+        assertFalse(vide.isPresent());
+    }
+
+    @Test
+    public void testIsPresentOnOptionalOfNotNull() {
+        Optional<String> nonVideNonNul = Optional.of("coucou");
+        assertTrue(nonVideNonNul.isPresent());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testOptionalOfNull() {
+        Optional<String> nonVideNul = Optional.of(null);
+    }
+
+    
+    @Test
+    public void testIsPresentOnOptionalOfNullableNotNull() {
+    	Optional<String> op = Optional.ofNullable("Bonjour");
+    	assert(op.isPresent());
+    }
+
+    
+    @Test
+    public void testIsPresentOnOptionalOfNullableNull() {
+    	Optional<String> op = Optional.ofNullable(null);
+    	assert(op.isPresent());
+    }
+
+    
+    @Test
+    public void testIfPresentOnOptionalOfNullableNotNull() {
+    	Optional<String> op = Optional.ofNullable("bonjour");
+    	op.ifPresent(x -> assertEquals("bonjour", x));
+    }
+    
+    @Test
+    public void testIfPresentOnOptionalOfNullableNull() {
+    Optional<String> op = Optional.ofNullable(null);
+	op.ifPresent(x -> assertEquals(null,x));
+    }
+    
+    @Test
+    public void TestOrElseOnOptionalOfNullableNotNull() {
+    	Optional<String> op = Optional.ofNullable("Bonjour");
+    	assertEquals("Bonjour", op.orElse("bn"));
+    }
+
+    
+    @Test
+    public void TestOrElseOnOptionalOfNullableNull() {
+    	Optional<String> op = Optional.ofNullable(null);
+    	assertEquals("Bonjour", op.orElse("Bonjour"));
+    }
+
+    @Test
+    public void TestOrElseOnOptionalEmpty() {
+    	Optional<String> op = Optional.empty();
+    	assertEquals("bonjour", op.orElse("bonjour"));
+    }
+
+    
+    @Test
+    public void TestOrElseGetOnOptionalOfNullableNotNull() {
+    	Optional<String> op = Optional.ofNullable("Bonjour");
+    	assertEquals("Bonjour", op.orElseGet(() -> "Bo"));
+    }
+
+    
+    @Test
+    public void TestOrElseGetOnOptionalOfNullableNull() {
+    	Optional<String> op = Optional.ofNullable(null);
+    	assertEquals("Bonjour", op.orElseGet(() -> "Bonjour"));
+    }
+
+    
+    @Test
+    public void TestOrElseThrowOnOptionalOfNullableNotNull() {
+    	Optional<String> op = Optional.ofNullable("bonjour");
+    	op.orElseThrow(NoSuchElementException:: new);
+    	
+    }
+
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void TestOrElseThrowOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestGetOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test(expected = NoSuchElementException.class)
+    public void TestGetOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestFilterOnOptionalOfNullableNull() {
+        // appliquer filtre sur Optional<String> permettant de savoir
+        // si l'optional contient une chaîne donnée puis tester avec isPresent()
+    }
+
+    @Ignore
+    @Test
+    public void TestFilterOnOptionalOfNullableNotNull() {
+        // appliquer filtre sur Optional<String> permettant de savoir
+        // si l'optional contient une chaîne donnée puis tester avec isPresent()
+        // considérer 2 cas
+    }
+
+}

@@ -1,0 +1,9 @@
+INDEX VERSION 1.134+C:\Users\adrie\OneDrive\Bureau\Cours_iut\BUT2\S3\R3.02\tp1\.metadata\.plugins\org.eclipse.jdt.core
+2148703110.index
+2514061224.index
+3635782928.index
+1583765369.index
+2194447521.index
+1865797976.index
+2272301807.index
+2261086194.index

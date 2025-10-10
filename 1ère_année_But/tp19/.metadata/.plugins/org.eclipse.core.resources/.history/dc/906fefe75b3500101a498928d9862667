@@ -1,0 +1,62 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class Course {
+	
+	private Plateau plateau;
+	private LinkedList<Joueur> joueurs;
+	private boolean estPartieFinie;
+	
+	public Course(int nbJoueurs) throws IllegalArgumentException{
+		if(nbJoueurs < 1 || nbJoueurs > 4) {
+			throw new IllegalArgumentException("Joueur insuffisant ou trop élevé");
+		}
+		this.plateau = new Plateau();
+		this.joueurs = new LinkedList<Joueur>();
+		for(int i = 1 ; i<nbJoueurs; i++ ) {
+			this.joueurs.add(new Joueur());
+		}
+		
+		this.estPartieFinie = false;
+		
+	}
+	
+	public void jouerPartie() {
+		while(!this.estPartieFinie) {
+			jouerUnTour();
+		}
+	
+	}
+	
+	
+	private void jouerUnTour() {
+		int numeroJoueur = 1;
+		while(!this.estPartieFinie && numeroJoueur <= this.joueurs.size()) {
+			joueurUnTourPourLeJoueur(numeroJoueur);
+			numeroJoueur++;
+		}
+		
+	}
+	
+	private void afficherTrace(
+			int numeroJoueur,
+			int positionJoueur,
+			int valeurDé, 
+			int nouvellePositionJoueur
+	) {
+		System.out.println("Position du joueur " + numeroJoueur + " avant de jouer : " + positionJoueur);
+		System.out.println(this.plateau.toString(positionJoueur));
+		System.out.println("Lancer du dé : " + valeurDé);
+		System.out.println("Position du joueur après avoir jouer : " + nouvellePositionJoueur);
+	}
+
+
+
+	private static int lancerDé() {
+	    return (int) (6.0 * Math.random() + 1.0);
+	}
+
+}
+	
+	
+	

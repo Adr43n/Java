@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Banque {
+    private String libelle; // Correction : Suppression de l'accent sur "libellé"
+    private List<CompteBancaire> comptes;
+
+    public Banque(String libelle) { // Correction : Suppression de l'accent sur "libellé"
+        this.libelle = libelle;
+        this.comptes = new ArrayList<>();
+    }
+
+    /**
+     * @return the libelle
+     */
+    public String getLibelle() { // Correction : Suppression de l'accent sur "libellé"
+        return libelle;
+    }
+
+    public CompteBancaire getCompte(String numero) { // Correction : Suppression de l'accent sur "numéro"
+        CompteBancaire cNum = new CompteBancaire(numero);
+        for (CompteBancaire c : this.comptes) {
+            if (c.equals(cNum)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public boolean estCompteExistant(String numero) { // Correction : Suppression de l'accent sur "numéro"
+        return this.getCompte(numero) != null;
+    }
+
+    public void ouvrir(String numero, float valeur) throws IllegalArgumentException { // Correction : Suppression de l'accent sur "numéro"
+        if (this.estCompteExistant(numero)) {
+            throw new IllegalArgumentException("Compte existant :" + numero);
+        }
+        CompteBancaire c = new CompteBancaire(numero);
+        c.deposer(valeur); // Correction : Suppression de l'accent sur "déposer"
+        this.comptes.add(c);
+    }
+
+    @Override
+    public String toString() { // Correction : Manquait les parenthèses ()
+        String r = "[Banque " + this.libelle; // Correction : Ajout d'un espace après "Banque"
+        for (CompteBancaire c : this.comptes) {
+            r += "\n" + c;
+        }
+        return r + "]";
+    }
+}

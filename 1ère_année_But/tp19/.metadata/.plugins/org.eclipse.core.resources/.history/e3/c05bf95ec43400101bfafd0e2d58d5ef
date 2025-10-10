@@ -1,0 +1,8 @@
+
+public class Joueur {
+	private int positionJoueurs;
+	
+	public Joueur () {
+		
+	}
+}

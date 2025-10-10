@@ -1,0 +1,8 @@
+
+public class Application1 {
+		
+		public static void main(String[] args){
+					Rationnel unDemi = new Rationnel(1L, 2L);
+					
+		}
+}

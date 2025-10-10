@@ -1,0 +1,9 @@
+package businessModel;
+
+public interfacea Scoreable {
+	public  void one();
+	public void two();
+	public void three();
+	public void four();
+
+}

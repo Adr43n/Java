@@ -1,0 +1,49 @@
+package bintetx;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class BinStringTest {
+	BinString bin = new BinString();
+	
+	@Test
+	public void testBinarisePlusieursValeurs() {
+		assertEquals("1",bin.binarise(1));
+		assertEquals("11",bin.binarise(3));
+		assertEquals("111",bin.binarise(7));
+		assertEquals("1111",bin.binarise(15));
+	}
+	
+	@Test
+	public void testSumChaineRéduiteAUnCaractère() {
+		assertEquals(1,bin.sum("1"));
+		
+	}
+	
+	@Test
+	public void testSumChaineNulle() {
+		assertEquals(0,bin.sum(""));
+		assertEquals(0,bin.sum(null));
+	}
+	
+	@Test
+	public void testConvertPlusieursValeurs() {
+		assertEquals("110",bin.convert("6"));
+		assertEquals("111",bin.convert("7"));
+		assertEquals("1100",bin.convert("12"));
+	}
+	
+	@Test
+	public void testConvertChaineVide() {
+		assertEquals("",bin.convert(null));
+		assertEquals("",bin.convert("0"));
+	}
+	
+	@Test
+	public void testSumChainePlusieursCaractères() {
+		assertEquals(5,bin.sum("5"));
+		assertEquals(6,bin.sum("6"));
+		assertEquals(7,bin.sum("7"));
+	}
+}

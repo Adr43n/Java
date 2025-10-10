@@ -1,0 +1,67 @@
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class CompteBancaireTest {
+
+    private CompteBancaire c;
+    private CompteBancaire cNumNull;
+   
+
+    @Before
+    public void setUp() throws Exception {
+        this.c = new CompteBancaire("001");
+        this.cNumNull = new CompteBancaire(null);
+   
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        this.c = null;
+        this.cNumNull = null;
+    
+    }
+
+    @Test
+    public void testEqualsRéflexivité() {
+        assertTrue(this.c.equals(this.c));
+    }
+
+    @Test
+    public void testEqualsAutreClasse() {
+        assertFalse(this.c.equals("001"));
+    }
+
+    @Test
+    public void testEqualsNull() {
+        assertFalse(this.c.equals(null));
+    }
+
+    @Test
+    public void testEqualsNumérosNullAvecNuméroNonNull() {
+        assertFalse(this.c.equals(this.cNumNull));
+    }
+
+    @Test
+    public void testEqualsNumérosNull() {
+    	CompteBancaire autreCNumNull = new CompteBancaire(null);
+        assertTrue(this.cNumNull.equals(autreCNumNull));
+    }
+
+  @Test
+    public void testEqualsNumérosDifférents() {
+	  CompteBancaire autreC = new CompteBancaire("002");
+      assertFalse(this.cNumNull.equals(autreC));
+    }
+
+      @Test
+    public void testEqualsNumérosIdentiques() {
+    	  CompteBancaire autreC = new CompteBancaire("001");
+          assertTrue(this.cNumNull.equals(autreC));
+    }
+}

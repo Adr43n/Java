@@ -1,0 +1,149 @@
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Classe représentant une banque avec une liste de comptes bancaires.
+ */
+public class Banque {
+    private String libelle;
+    private List<CompteBancaire> comptes;
+
+    /**
+     * Constructeur de la banque.
+     * @param libelle Nom de la banque
+     */
+    public Banque(String libelle) {
+        this.libelle = libelle;
+        this.comptes = new ArrayList<>();
+    }
+
+    /**
+     * Retourne le libellé de la banque.
+     * @return libellé de la banque
+     */
+    public String getLibelle() {
+        return libelle;
+    }
+
+    /**
+     * Ouvre un compte bancaire avec un solde initial.
+     * @param numero Numéro du compte
+     * @param valeur Montant initial (doit être >= 0)
+     * @throws IllegalArgumentException si le compte existe déjà ou si le montant est négatif
+     */
+    public void ouvrir(String numero, float valeur) throws IllegalArgumentException {
+        if (this.estCompteExistant(numero) || valeur < 0) {
+            throw new IllegalArgumentException("Compte existant ou montant invalide : " + numero);
+        }
+        CompteBancaire c = new CompteBancaire(numero);
+        c.déposer(valeur);
+        this.comptes.add(c);
+    }
+
+    /**
+     * Ouvre un compte épargne avec un taux d'intérêt et un solde initial.
+     * @param numero Numéro du compte
+     * @param taux Taux d'intérêt du compte épargne
+     * @param valeur Montant initial (doit être >= 0)
+     * @throws IllegalArgumentException si le compte existe déjà ou si le montant est négatif
+     */
+    public void ouvrir(String numero, float taux, float valeur) throws IllegalArgumentException {
+        if (this.estCompteExistant(numero) || valeur < 0) {
+            throw new IllegalArgumentException("Compte existant ou montant invalide : " + numero);
+        }
+        CompteEpargne c = new CompteEpargne(numero, taux);
+        c.déposer(valeur);
+        this.comptes.add(c);
+    }
+
+    /**
+     * Ferme un compte bancaire si son solde est nul.
+     * @param numero Numéro du compte
+     * @throws IllegalArgumentException si le compte n'existe pas ou si son solde n'est pas nul
+     */
+    public void fermer(String numero) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || c.solde() != 0) {
+            throw new IllegalArgumentException("Compte inexistant ou solde non nul : " + numero);
+        }
+        this.comptes.remove(c);
+    }
+
+    /**
+     * Calcule le solde total de la banque.
+     * @return solde total de la banque
+     */
+    public float solde() {
+        float total = 0;
+        for (CompteBancaire c : this.comptes) {
+            total += c.solde();
+        }
+        return total;
+    }
+
+    /**
+     * Dépose un montant sur un compte bancaire.
+     * @param numero Numéro du compte
+     * @param valeur Montant à déposer (doit être >= 0)
+     * @throws IllegalArgumentException si le compte n'existe pas ou si le montant est négatif
+     */
+    public void deposer(String numero, float valeur) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || valeur < 0) {
+            throw new IllegalArgumentException("Compte inexistant ou montant invalide : " + numero);
+        }
+        c.déposer(valeur);
+    }
+
+    /**
+     * Retire un montant d'un compte bancaire.
+     * @param numero Numéro du compte
+     * @param valeur Montant à retirer (doit être >= 0)
+     * @throws IllegalArgumentException si le compte n'existe pas ou si le montant est négatif
+     */
+    public void retirer(String numero, float valeur) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || valeur < 0) {
+            throw new IllegalArgumentException("Compte inexistant ou montant invalide : " + numero);
+        }
+        c.retirer(valeur);
+    }
+
+    /**
+     * Vérifie si un compte bancaire existe dans la banque.
+     * @param numero Numéro du compte
+     * @return true si le compte existe, false sinon
+     */
+    public boolean estCompteExistant(String numero) {
+        return this.getCompte(numero) != null;
+    }
+
+    /**
+     * Retourne un compte bancaire par son numéro.
+     * @param numero Numéro du compte
+     * @return Le compte bancaire correspondant, ou null s'il n'existe pas
+     */
+    public CompteBancaire getCompte(String numero) {
+        for (CompteBancaire c : this.comptes) {
+            if (c.getNuméro().equals(numero)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Retourne une représentation textuelle de la banque et de ses comptes.
+     * @return Chaîne de caractères représentant la banque
+     */
+    @Override
+    public String toString() {
+        StringBuilder r = new StringBuilder("[Banque : " + this.libelle);
+        for (CompteBancaire c : this.comptes) {
+            r.append("\nNuméro : ").append(c.getNuméro())
+             .append(", Crédit : ").append(c.solde())
+             .append(", Débit : 0.0");
+        }
+        return r.append("]").toString();
+    }
+}

@@ -1,0 +1,79 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Banque {
+    private String libelle;
+    private List<CompteBancaire> comptes;
+
+    public Banque(String libelle) {
+        this.libelle = libelle;
+        this.comptes = new ArrayList<>();
+    }
+
+    public String getLibelle() {
+        return libelle;
+    }
+
+    public void ouvrir(String numero, float valeur) throws IllegalArgumentException {
+        if (this.estCompteExistant(numero) || valeur < 0) {
+            throw new IllegalArgumentException("Compte existant ou montant invalide : " + numero);
+        }
+        CompteBancaire c = new CompteBancaire(numero);
+        c.deposer(valeur);
+        this.comptes.add(c);
+    }
+
+    public void fermer(String numero) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || c.getSolde() != 0) {
+            throw new IllegalArgumentException("Compte inexistant ou solde non nul : " + numero);
+        }
+        this.comptes.remove(c);
+    }
+
+    public float solde() {
+        float total = 0;
+        for (CompteBancaire c : this.comptes) {
+            total += c.getSolde();
+        }
+        return total;
+    }
+
+    public void deposer(String numero, float valeur) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || valeur < 0) {
+            throw new IllegalArgumentException("Compte inexistant ou montant invalide : " + numero);
+        }
+        c.deposer(valeur);
+    }
+
+    public void retirer(String numero, float valeur) throws IllegalArgumentException {
+        CompteBancaire c = this.getCompte(numero);
+        if (c == null || valeur < 0) {
+            throw new IllegalArgumentException("Compte inexistant ou montant invalide : " + numero);
+        }
+        c.retirer(valeur);
+    }
+
+    public boolean estCompteExistant(String numero) {
+        return this.getCompte(numero) != null;
+    }
+
+    public CompteBancaire getCompte(String numero) {
+        for (CompteBancaire c : this.comptes) {
+            if (c.getNumero().equals(numero)) {
+                return c;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder r = new StringBuilder("[Banque " + this.libelle);
+        for (CompteBancaire c : this.comptes) {
+            r.append("\n").append(c);
+        }
+        return r.append("]").toString();
+    }
+}

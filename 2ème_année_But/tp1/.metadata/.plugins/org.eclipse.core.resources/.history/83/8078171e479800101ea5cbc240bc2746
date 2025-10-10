@@ -1,0 +1,105 @@
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+import java.util.NoSuchElementException;
+import java.util.Optional;
+
+import org.junit.Ignore;
+import org.junit.Test;
+
+public class OptionalTest {
+
+    @Test
+    public void testIsPresentOnOptionalEmpty() {
+        Optional<String> vide = Optional.empty();
+        assertFalse(vide.isPresent());
+    }
+
+    @Test
+    public void testIsPresentOnOptionalOfNotNull() {
+        Optional<String> nonVideNonNul = Optional.of("coucou");
+        assertTrue(nonVideNonNul.isPresent());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testOptionalOfNull() {
+        Optional<String> nonVideNul = Optional.of(null);
+    }
+
+    
+    @Test
+    public void testIsPresentOnOptionalOfNullableNotNull() {
+    	
+    }
+
+    @Ignore
+    @Test
+    public void testIsPresentOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void testIfPresentOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseOnOptionalEmpty() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseGetOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseGetOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestOrElseThrowOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test(expected = IllegalArgumentException.class)
+    public void TestOrElseThrowOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestGetOnOptionalOfNullableNotNull() {
+    }
+
+    @Ignore
+    @Test(expected = NoSuchElementException.class)
+    public void TestGetOnOptionalOfNullableNull() {
+    }
+
+    @Ignore
+    @Test
+    public void TestFilterOnOptionalOfNullableNull() {
+        // appliquer filtre sur Optional<String> permettant de savoir
+        // si l'optional contient une chaîne donnée puis tester avec isPresent()
+    }
+
+    @Ignore
+    @Test
+    public void TestFilterOnOptionalOfNullableNotNull() {
+        // appliquer filtre sur Optional<String> permettant de savoir
+        // si l'optional contient une chaîne donnée puis tester avec isPresent()
+        // considérer 2 cas
+    }
+
+}

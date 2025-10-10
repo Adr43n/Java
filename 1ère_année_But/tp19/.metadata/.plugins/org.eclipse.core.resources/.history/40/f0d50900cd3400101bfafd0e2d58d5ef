@@ -1,0 +1,25 @@
+public class CaseAttente extends Case {
+
+    private int valeurDe; 
+
+    public CaseAttente(int position, int valeurDe) {
+        super(position);
+        this.valeurDe = valeurDe;
+    }
+
+    @Override
+    public int nouvellePosition(int valeurDe) {
+        if (this.valeurDe == valeurDe) {
+            return super.getPosition() + valeurDe;
+        } else {
+            return super.getPosition(); 
+        }
+    }
+    
+    @Override
+	public String toString() {
+		return super.toString() + 
+				"avancer de la valeur du dé si elle est égale à " + this.valeurDé;
+	}
+
+}

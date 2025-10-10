@@ -1,0 +1,44 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Banque {
+	private String libellé;
+	private List<CompteBancaire> comptes;
+	
+	public Banque(String libellé) {
+		this.libellé = libellé;
+		this.comptes = new ArrayList<>();
+	}
+
+	/**
+	 * @return the libellé
+	 */
+	public String getLibellé() {
+		return libellé;
+	}
+
+public CompteBancaire getCompte(String numéro) {
+	CompteBancaire cNum = new CompteBancaire(numéro);
+	for(CompteBancaire c : this.comptes) {
+		if (c.equals(cNum)) {
+			return c;
+		}
+		return null;
+	}
+	return cNum;
+}
+	public boolean estCompteExistant(String numéro) {
+		return this.getCompte(numéro) != null;
+	}
+	
+	public void oouvrir(String numéro, float valeur) throws IllegalArgumentException {
+		if (this.estCompteExistant(numéro)) {
+			throw new IllegalArgumentException("Compte existant :" + numéro);
+		}
+		CompteBancaire c = new CompteBancaire(numéro);
+		c.déposer(valeur);
+		this.comptes.add(c);
+		
+	}
+	
+}

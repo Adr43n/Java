@@ -1,0 +1,81 @@
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+public class testcouleurTest {
+	private Couleur c;
+	@Before
+	public void setUp() throws Exception {
+		this.c = new Couleur(1,2,3);
+	}
+
+	@After
+	public void tearDown() throws Exception {
+		this.c = null;
+	}
+
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+	
+	@Test
+	public void testConstanteRouge() {
+		assertEquals(255,Couleur.rouge().getRouge());
+		assertEquals(0,Couleur.rouge().getVert());
+		assertEquals(0,Couleur.rouge().getBleu());
+	}
+	@Test
+	public void testConstanteVert() {
+		assertEquals(0,Couleur.vert().getRouge());
+		assertEquals(255,Couleur.vert().getVert());
+		assertEquals(0,Couleur.vert().getBleu());
+	}
+	@Test
+	public void testConstanteBleu() {
+		assertEquals(0,Couleur.bleu().getRouge());
+		assertEquals(0,Couleur.bleu().getVert());
+		assertEquals(255,Couleur.bleu().getBleu());
+	}
+	
+	@Test
+	public void testComposanteRougeConstructeur() {
+		assertEquals(1,this.c.getRouge());
+	}
+	
+	@Test
+	public void testComposanteBleuConstructeur() {
+		assertEquals(3,this.c.getBleu());
+	}
+	
+	@Test
+	public void testComposanteVertConstructeur() {
+		assertEquals(2,this.c.getVert());
+	}
+	
+	@Test
+	public void testComposanteRougeSetter() {
+		this.c.setRouge(255);
+		assertEquals(255,this.c.getRouge());
+	}
+	@Test
+	public void testComposanteVerteSetter() {
+		this.c.setVert(255);
+		assertEquals(255,this.c.getVert());
+	}
+	@Test
+	public void testComposanteBleuSetter() {
+		this.c.setBleu(255);
+		assertEquals(255,this.c.getBleu());
+	}
+	
+	@Test
+	public void testValeurRVB() {
+		assertEquals(256 * 256 + 2 * 256 + 3,this.c.valeurRVB());
+	}
+
+
+
+}

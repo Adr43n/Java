@@ -1,0 +1,26 @@
+package businessModel;
+
+public class Score implements Scoreable {
+	private int score;
+	
+	public  void one (int score) {
+		this.score=score;
+		
+	}
+
+	public  void two (int score) {
+		this.score+=1;
+		
+	}
+	public  void three (int score) {
+		this.score+=2;
+		
+	}
+
+	@Override
+	public void four() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
