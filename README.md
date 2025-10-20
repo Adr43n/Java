@@ -35,6 +35,8 @@ Chaque dossier contient :
 
 4. **Exécuter le programme avec Run ▶️.**
 
+---
+
 📘 **Contenu pédagogique**
 
 Les TP et TD couvrent différents aspects du langage Java :
@@ -52,6 +54,8 @@ Le polymorphisme et l’héritage
 Les interfaces graphiques (Swing / JavaFX)
 
 Les projets plus avancés (gestion, mini-jeux, etc.)
+
+---
 
 🧠 **Objectif**
 
