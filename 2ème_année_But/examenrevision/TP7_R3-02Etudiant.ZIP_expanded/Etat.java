@@ -1,0 +1,4 @@
+
+public enum Etat {
+    EN_PREPARATION, ENVOYEE, LIVREE, EN_ATTENTE
+}
